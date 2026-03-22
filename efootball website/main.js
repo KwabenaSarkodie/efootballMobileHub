@@ -42,17 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const noResults = document.getElementById('noResults');
 
     function filterPlayers() {
-        if(!searchInput) return;
+        if (!searchInput) return;
         const query = searchInput.value.toLowerCase();
         const pos = posFilter.value;
         const type = typeFilter.value;
         let visibleCount = 0;
-        
+
         playerGrid.querySelectorAll('.player-card').forEach(card => {
             const matchName = card.getAttribute('data-name').toLowerCase().includes(query);
             const matchPos = (pos === 'All' || card.getAttribute('data-pos') === pos);
             const matchType = (type === 'All' || card.getAttribute('data-type') === type);
-            
+
             if (matchName && matchPos && matchType) {
                 card.style.display = 'block';
                 visibleCount++;
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
     }
-    if(searchBtn) searchBtn.addEventListener('click', filterPlayers);
-    if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') filterPlayers(); });
+    if (searchBtn) searchBtn.addEventListener('click', filterPlayers);
+    if (searchInput) searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') filterPlayers(); });
 
 
     // --- 3. BUILDS SIMULATOR ---
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsConfig = { sht: { val: 8, mul: 0.1 }, pas: { val: 4, mul: 0.05 }, dri: { val: 12, mul: 0.15 }, dex: { val: 8, mul: 0.1 }, lbs: { val: 4, mul: 0.05 }, aer: { val: 2, mul: 0.02 } };
 
     function updateBuildUI() {
-        if(!pointsEl) return;
+        if (!pointsEl) return;
         pointsEl.textContent = pointsLeft;
         let rating = 90;
         for (const k in statsConfig) {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         ratingEl.textContent = Math.floor(rating);
     }
-    
+
     document.querySelectorAll('.adjust-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const k = e.target.getAttribute('data-stat');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     const resetBuild = document.getElementById('resetBuild');
-    if(resetBuild) resetBuild.addEventListener('click', () => {
+    if (resetBuild) resetBuild.addEventListener('click', () => {
         for (const k in statsConfig) statsConfig[k].val = 0;
         pointsLeft = MAX_POINTS; updateBuildUI();
     });
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ccPos = document.getElementById('cc-position');
     const ccTheme = document.getElementById('cc-theme');
     const ccPlaystyle = document.getElementById('cc-playstyle');
-    
+
     const outName = document.getElementById('cc-out-name');
     const outRating = document.getElementById('cc-out-rating');
     const outPos = document.getElementById('cc-out-position');
@@ -119,17 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const previewCard = document.getElementById('cc-preview-card');
 
     function updateCardPreview() {
-        if(!ccName) return;
+        if (!ccName) return;
         outName.textContent = ccName.value || 'UNKNOWN';
         outImage.textContent = ccName.value || 'UNKNOWN';
         outRating.textContent = ccRating.value || '50';
         outPos.textContent = ccPos.value;
         outPlaystyle.textContent = ccPlaystyle.value.toUpperCase() || 'STANDARD';
-        
+
         previewCard.className = `floating-card standalone ${ccTheme.value}`;
     }
 
-    if(ccName) {
+    if (ccName) {
         [ccName, ccRating, ccPos, ccTheme, ccPlaystyle].forEach(input => {
             input.addEventListener('input', updateCardPreview);
         });
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 5. SQUAD BUILDER ---
     let activeSlotIndex = null;
     let squadData = Array(11).fill(null); // stores player objects
-    
+
     const modal = document.getElementById('playerModal');
     const modalCloseBtn = document.getElementById('closeModalBtn');
     const modalList = document.getElementById('modalPlayerList');
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         activeSlotIndex = null;
     }
 
-    if(modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
 
     document.querySelectorAll('.player-slot').forEach(slot => {
         slot.addEventListener('click', () => {
@@ -191,30 +191,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSquadUI() {
         let totalRating = 0;
         let playersCount = 0;
-        
+
         squadData.forEach((player, i) => {
-            const slotEl = document.getElementById(`slot-${i+1}`);
+            const slotEl = document.getElementById(`slot-${i + 1}`);
             if (player) {
                 slotEl.classList.add('filled');
-                slotEl.innerHTML = `<div class="slot-pos">${player.pos}</div><div class="slot-name">${player.name.substring(0,6)}...</div><div class="slot-rating">${player.rating}</div>`;
+                slotEl.innerHTML = `<div class="slot-pos">${player.pos}</div><div class="slot-name">${player.name.substring(0, 6)}...</div><div class="slot-rating">${player.rating}</div>`;
                 totalRating += player.rating;
                 playersCount++;
             } else {
                 slotEl.classList.remove('filled');
                 // Reset to default structure
                 let defaultPos = "CB";
-                if(i===0) defaultPos="CF"; if(i===1) defaultPos="LWF"; if(i===2) defaultPos="RWF";
-                if(i===3||i===5) defaultPos="CMF"; if(i===4) defaultPos="DMF";
-                if(i===6) defaultPos="LB"; if(i===9) defaultPos="RB"; if(i===10) defaultPos="GK";
-                
+                if (i === 0) defaultPos = "CF"; if (i === 1) defaultPos = "LWF"; if (i === 2) defaultPos = "RWF";
+                if (i === 3 || i === 5) defaultPos = "CMF"; if (i === 4) defaultPos = "DMF";
+                if (i === 6) defaultPos = "LB"; if (i === 9) defaultPos = "RB"; if (i === 10) defaultPos = "GK";
+
                 slotEl.innerHTML = `<div class="slot-pos">${defaultPos}</div><div class="slot-name">+</div>`;
             }
         });
-        
+
         let ovr = playersCount > 0 ? Math.floor(totalRating / playersCount) : 0;
         // Small team chemistry boost simulation
-        if(playersCount === 11) ovr += 2; 
-        
+        if (playersCount === 11) ovr += 2;
+
         if (teamOverallEl) teamOverallEl.textContent = ovr;
     }
 
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selP2 = document.getElementById('comp-p2');
     const statsContainer = document.getElementById('compare-stats');
 
-    if(selP1 && selP2) {
+    if (selP1 && selP2) {
         // Populate dropdowns
         let optionsHTML = MOCK_DB.map(p => `<option value="${p.id}">${p.name} (${p.rating})</option>`).join('');
         selP1.innerHTML = optionsHTML;
@@ -240,9 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateComparison() {
             const p1 = MOCK_DB.find(p => p.id == selP1.value);
             const p2 = MOCK_DB.find(p => p.id == selP2.value);
-            
-            if(!p1 || !p2) return;
-            
+
+            if (!p1 || !p2) return;
+
             const statsToCompare = [
                 { key: 'sht', label: 'Shooting' },
                 { key: 'pas', label: 'Passing' },
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statsToCompare.forEach(s => {
                 let v1 = p1.stats[s.key];
                 let v2 = p2.stats[s.key];
-                
+
                 let winClass1 = v1 > v2 ? 'stat-win' : (v1 < v2 ? 'stat-lose' : '');
                 let winClass2 = v2 > v1 ? 'stat-win' : (v2 < v1 ? 'stat-lose' : '');
 
@@ -279,10 +279,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selP1.addEventListener('change', updateComparison);
         selP2.addEventListener('change', updateComparison);
-        
+
         // Initial render
         updateComparison();
     }
 });
- 
- 
+
