@@ -26,29 +26,3 @@ Welcome to **eFootball HUB**, the premier destination for eFootball Mobile enthu
 ## 🚀 Getting Started
 
 This project is built using pure vanilla **HTML, CSS, and JavaScript**. No heavy frameworks, just clean, fast, and responsive code.
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/your-username/efootball-hub.git
-   ```
-2. Open `index.html` in your favorite browser.
-3. Start building your ultimate squad!
-
-## 📸 Sneak Peek
-
-*(Add screenshots of your amazing web app here!)*
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/efootball-hub/issues).
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-<div align="center">
-  <p>Not affiliated with Konami. Built by fans, for fans of eFootball Mobile.</p>
-</div>
