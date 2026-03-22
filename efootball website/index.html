@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFootball Hub | The Ultimate Guide for Mobile Players</title>
+    <meta name="description" content="The best database, squad builder, and meta guides for eFootball mobile players.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">⚽</span>
+                eFootball <span class="highlight">HUB</span>
+            </a>
+            <div class="nav-links">
+                <a href="#search">Search</a>
+                <a href="#builds">Builds</a>
+                <a href="#managers">Managers</a>
+                <a href="#creator">Creator</a>
+                <a href="#squad">Squad</a>
+                <a href="#compare">Compare</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#search" class="mobile-link">Search</a>
+        <a href="#builds" class="mobile-link">Builds</a>
+        <a href="#managers" class="mobile-link">Managers</a>
+        <a href="#creator" class="mobile-link">Card Creator</a>
+        <a href="#squad" class="mobile-link">Squad Builder</a>
+        <a href="#compare" class="mobile-link">Compare Players</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">🔥 New 2026 Season Update</div>
+            <h1 class="hero-title">Dominate the <span class="highlight-gradient">Pitch.</span><br>Master the <span
+                    class="highlight-gradient">Meta.</span></h1>
+            <p class="hero-subtitle">The ultimate player database, squad builder, and tactical guide designed
+                exclusively for eFootball Mobile players.</p>
+            <div class="hero-actions">
+                <a href="#creator" class="btn btn-primary">Create a Card</a>
+                <a href="#squad" class="btn btn-secondary">Build a Squad</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card epic-card card-1">
+                <div class="card-top">
+                    <span class="rating">105</span>
+                    <span class="position">SS</span>
+                </div>
+                <div class="card-image-placeholder">L. MESSI</div>
+                <div class="card-bottom">
+                    <div class="card-name">L. MESSI</div>
+                    <div class="card-type">EPIC: BIG TIME</div>
+                </div>
+            </div>
+            <div class="floating-card potw-card card-2">
+                <div class="card-top">
+                    <span class="rating">101</span>
+                    <span class="position">CF</span>
+                </div>
+                <div class="card-image-placeholder">K. MBAPPÉ</div>
+                <div class="card-bottom">
+                    <div class="card-name">K. MBAPPÉ</div>
+                    <div class="card-type">POTW</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Player Search Section -->
+    <section class="section-container" id="search">
+        <div class="section-header">
+            <h2>Search <span class="highlight">Players</span></h2>
+            <p>Find max stats, hidden gems, and epic legends.</p>
+        </div>
+
+        <div class="search-bar-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for a player by name...">
+            <div class="filter-group">
+                <select class="filter-select" id="posFilter">
+                    <option value="All">All Positions</option>
+                    <option value="CF">CF / SS</option>
+                    <option value="AMF">AMF / CMF / DMF</option>
+                    <option value="Winger">LWF / RWF</option>
+                    <option value="Defense">CB / LB / RB</option>
+                    <option value="GK">GK</option>
+                </select>
+                <select class="filter-select" id="typeFilter">
+                    <option value="All">All Types</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Showtime">Show Time</option>
+                    <option value="POTW">POTW</option>
+                    <option value="Standard">Standard</option>
+                </select>
+                <button class="btn btn-primary" id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <div class="card-grid" id="playerGrid">
+            <!-- Mock Players -->
+            <div class="player-card epic-card" data-name="Ronaldinho" data-pos="AMF" data-type="Epic">
+                <div class="card-content">
+                    <div class="card-stats">
+                        <span class="rating">103</span>
+                        <span class="position">AMF</span>
+                    </div>
+                    <div class="card-art">
+                        <div class="silhouette">RONALDINHO</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="name">RONALDINHO G.</h3>
+                        <p class="playstyle">Classic No. 10</p>
+                        <div class="stat-row">
+                            <span>DRI: 99</span>
+                            <span>PAS: 95</span>
+                            <span>SHT: 88</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card potw-card" data-name="Saliba" data-pos="Defense" data-type="POTW">
+                <div class="card-content">
+                    <div class="card-stats">
+                        <span class="rating">100</span>
+                        <span class="position">CB</span>
+                    </div>
+                    <div class="card-art">
+                        <div class="silhouette">SALIBA</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="name">W. SALIBA</h3>
+                        <p class="playstyle">Build Up</p>
+                        <div class="stat-row">
+                            <span>DEF: 98</span>
+                            <span>PHY: 93</span>
+                            <span>SPD: 85</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-card showtime-card" data-name="Salah" data-pos="Winger" data-type="Showtime">
+                <div class="card-content">
+                    <div class="card-stats">
+                        <span class="rating">102</span>
+                        <span class="position">RWF</span>
+                    </div>
+                    <div class="card-art">
+                        <div class="silhouette">SALAH</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="name">M. SALAH</h3>
+                        <p class="playstyle">Roaming Flank</p>
+                        <div class="stat-row">
+                            <span>SPD: 96</span>
+                            <span>SHT: 94</span>
+                            <span>DRI: 92</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="player-card standard-card" data-name="Bellingham" data-pos="AMF" data-type="Standard">
+                <div class="card-content">
+                    <div class="card-stats">
+                        <span class="rating">99</span>
+                        <span class="position">AMF</span>
+                    </div>
+                    <div class="card-art">
+                        <div class="silhouette">JUDE</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="name">J. BELLINGHAM</h3>
+                        <p class="playstyle">Hole Player</p>
+                        <div class="stat-row">
+                            <span>STA: 95</span>
+                            <span>PAS: 90</span>
+                            <span>DRI: 89</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="noResults" class="no-results hidden">No players found matching your criteria.</div>
+    </section>
+
+    <!-- NEW SECTION: Card Creator -->
+    <section class="section-container bg-darker" id="creator">
+        <div class="section-header">
+            <h2>Card <span class="highlight">Creator</span></h2>
+            <p>Design your own premium custom cards instantly.</p>
+        </div>
+        <div class="creator-wrapper">
+            <div class="creator-form-panel">
+                <div class="form-group">
+                    <label>Player Name</label>
+                    <input type="text" id="cc-name" class="form-input" value="R. LEAO" maxlength="15">
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group flex-1">
+                        <label>Rating</label>
+                        <input type="number" id="cc-rating" class="form-input" value="103" min="50" max="120">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Position</label>
+                        <select id="cc-position" class="form-input">
+                            <option value="LWF">LWF</option>
+                            <option value="CF">CF</option>
+                            <option value="AMF">AMF</option>
+                            <option value="CB">CB</option>
+                            <option value="GK">GK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Card Theme</label>
+                    <select id="cc-theme" class="form-input">
+                        <option value="epic-card">Epic</option>
+                        <option value="potw-card">POTW</option>
+                        <option value="showtime-card">Showtime</option>
+                        <option value="standard-card">Standard</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Playstyle Subtitle</label>
+                    <input type="text" id="cc-playstyle" class="form-input" value="EPIC: BIG TIME">
+                </div>
+            </div>
+            
+            <div class="creator-preview-panel">
+                <div class="floating-card epic-card standalone" id="cc-preview-card">
+                    <div class="card-top">
+                        <span class="rating" id="cc-out-rating">103</span>
+                        <span class="position" id="cc-out-position">LWF</span>
+                    </div>
+                    <div class="card-image-placeholder" id="cc-out-image" style="font-size:1.8rem;">R. LEAO</div>
+                    <div class="card-bottom">
+                        <div class="card-name" id="cc-out-name">R. LEAO</div>
+                        <div class="card-type" id="cc-out-playstyle">EPIC: BIG TIME</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Squad Builder -->
+    <section class="section-container" id="squad">
+        <div class="section-header">
+            <h2>Squad <span class="highlight">Builder</span></h2>
+            <p>Create your ultimate 11 and test chemistry on the pitch.</p>
+        </div>
+        <div class="squad-builder-wrapper">
+            <div class="soccer-pitch">
+                <!-- Field Markings -->
+                <div class="center-circle"></div>
+                <div class="half-way-line"></div>
+                <div class="penalty-box top-box"></div>
+                <div class="penalty-box bottom-box"></div>
+                
+                <!-- 11 Player Slots for a 4-3-3 Setup -->
+                <div class="player-slot" id="slot-1" style="top: 10%; left: 50%;" data-index="1"><div class="slot-pos">CF</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-2" style="top: 15%; left: 20%;" data-index="2"><div class="slot-pos">LWF</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-3" style="top: 15%; left: 80%;" data-index="3"><div class="slot-pos">RWF</div><div class="slot-name">+</div></div>
+                
+                <div class="player-slot" id="slot-4" style="top: 40%; left: 30%;" data-index="4"><div class="slot-pos">CMF</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-5" style="top: 45%; left: 50%;" data-index="5"><div class="slot-pos">DMF</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-6" style="top: 40%; left: 70%;" data-index="6"><div class="slot-pos">CMF</div><div class="slot-name">+</div></div>
+                
+                <div class="player-slot" id="slot-7" style="top: 70%; left: 15%;" data-index="7"><div class="slot-pos">LB</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-8" style="top: 75%; left: 35%;" data-index="8"><div class="slot-pos">CB</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-9" style="top: 75%; left: 65%;" data-index="9"><div class="slot-pos">CB</div><div class="slot-name">+</div></div>
+                <div class="player-slot" id="slot-10" style="top: 70%; left: 85%;" data-index="10"><div class="slot-pos">RB</div><div class="slot-name">+</div></div>
+                
+                <div class="player-slot" id="slot-11" style="top: 92%; left: 50%;" data-index="11"><div class="slot-pos">GK</div><div class="slot-name">+</div></div>
+            </div>
+            
+            <div class="squad-stats-panel">
+                <h3>Team Overview</h3>
+                <div class="team-stat">
+                    <span>Overall Rating</span>
+                    <span class="highlight-gradient font-bold" id="team-overall">0</span>
+                </div>
+                <div class="team-stat mt-2">
+                    <span>Team Playstyle Level</span>
+                    <span class="font-bold">100</span>
+                </div>
+                <button class="btn btn-primary w-100 mt-2" id="clearSquadBtn">Clear Squad</button>
+            </div>
+        </div>
+
+        <!-- Player Selection Modal -->
+        <div class="modal-overlay" id="playerModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Select a Player</h3>
+                    <button class="modal-close" id="closeModalBtn">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="mock-player-list" id="modalPlayerList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Player Comparison -->
+    <section class="section-container bg-darker" id="compare">
+        <div class="section-header">
+            <h2>Player <span class="highlight">Comparison</span></h2>
+            <p>Compare two players side by side to make the best transfer decision.</p>
+        </div>
+        
+        <div class="compare-wrapper">
+            <div class="compare-selectors">
+                <select id="comp-p1" class="form-input comp-select">
+                    <!-- Populated by JS -->
+                </select>
+                <div class="vs-badge">VS</div>
+                <select id="comp-p2" class="form-input comp-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+            
+            <div class="compare-stats-container" id="compare-stats">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Builds Section -->
+    <section class="section-container" id="builds">
+        <!-- Re-using existing Builds Section code perfectly -->
+        <div class="section-header">
+            <h2>Custom <span class="highlight">Builds</span></h2>
+            <p>Allocate progression points and uncap your players' true potential.</p>
+        </div>
+
+        <div class="build-simulator">
+            <div class="build-player-preview">
+                 <div class="floating-card epic-card standalone">
+                    <div class="card-top">
+                        <span class="rating" id="buildRating">99</span>
+                        <span class="position">CF</span>
+                    </div>
+                    <div class="card-image-placeholder">R. LEWANDOWSKI</div>
+                    <div class="card-bottom">
+                        <div class="card-name">R. LEWANDOWSKI</div>
+                        <div class="card-type">EPIC</div>
+                    </div>
+                </div>
+                <div class="points-remaining">
+                    <h3>Points Remaining <span class="highlight-gradient" id="pointsLeft">32</span></h3>
+                </div>
+            </div>
+            
+            <div class="build-controls">
+                <!-- Stat 1 -->
+                <div class="stat-control">
+                    <div class="stat-label">Shooting</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="sht">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-sht" style="width: 40%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-sht">8</span>
+                        <button class="adjust-btn plus" data-stat="sht">+</button>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="stat-control">
+                    <div class="stat-label">Passing</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="pas">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-pas" style="width: 20%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-pas">4</span>
+                        <button class="adjust-btn plus" data-stat="pas">+</button>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="stat-control">
+                    <div class="stat-label">Dribbling</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="dri">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-dri" style="width: 60%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-dri">12</span>
+                        <button class="adjust-btn plus" data-stat="dri">+</button>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="stat-control">
+                    <div class="stat-label">Dexterity</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="dex">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-dex" style="width: 40%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-dex">8</span>
+                        <button class="adjust-btn plus" data-stat="dex">+</button>
+                    </div>
+                </div>
+                <!-- Stat 5 -->
+                <div class="stat-control">
+                    <div class="stat-label">Lower Body Strength</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="lbs">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-lbs" style="width: 20%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-lbs">4</span>
+                        <button class="adjust-btn plus" data-stat="lbs">+</button>
+                    </div>
+                </div>
+                <!-- Stat 6 -->
+                <div class="stat-control">
+                    <div class="stat-label">Aerial Strength</div>
+                    <div class="stat-adjuster">
+                        <button class="adjust-btn minus" data-stat="aer">-</button>
+                        <div class="stat-bars">
+                            <div class="bar-fill" id="bar-aer" style="width: 10%;"></div>
+                        </div>
+                        <span class="stat-value" id="val-aer">2</span>
+                        <button class="adjust-btn plus" data-stat="aer">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary w-100 mt-2" id="resetBuild">Reset Build</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">⚽ eFootball <span class="highlight">HUB</span></div>
+            <p>Not affiliated with Konami. Built by fans, for fans of eFootball Mobile.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
